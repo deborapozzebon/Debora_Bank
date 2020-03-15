@@ -13,13 +13,13 @@ namespace Debora_Bank.Commands.Owner
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string CPF { get; set; }
-        public Account Account { get; set; }
+        public Entities.Account Account { get; set; }
 
         public InsertOwnerCommand(
             Guid id,
             string name,
             string CPF,
-            Account account)
+            Entities.Account account)
         {
             this.Id = id;
             this.Name = name;

@@ -1,7 +1,7 @@
 ﻿using Debora_Bank.Entities;
 using Newtonsoft.Json;
 
-namespace Debora_Bank.Dtos
+namespace Debora_Bank.Dtos.Owner
 {
     public class OwnerPutResquest
     {

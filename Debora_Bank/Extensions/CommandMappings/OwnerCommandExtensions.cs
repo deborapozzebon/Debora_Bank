@@ -1,5 +1,5 @@
 ﻿using Debora_Bank.Commands.Owner;
-using Debora_Bank.Dtos;
+using Debora_Bank.Dtos.Owner;
 using System;
 
 namespace Debora_Bank.Extensions.CommandMappings

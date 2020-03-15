@@ -1,9 +1,7 @@
-﻿using Debora_Bank.Dtos;
+﻿using Debora_Bank.Dtos.Owner;
 using Debora_Bank.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Debora_Bank.Extensions.ResponseMappings
 {

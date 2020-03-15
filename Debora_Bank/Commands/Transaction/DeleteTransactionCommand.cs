@@ -2,13 +2,13 @@
 using Debora_Bank.Exceptions.Error;
 using System;
 
-namespace Debora_Bank.Commands.Owner
+namespace Debora_Bank.Commands.Transaction
 {
-    public class DeleteOwnerCommand
+    public class DeleteTransactionCommand
     {
         public Guid Id { get; set; }
 
-        public DeleteOwnerCommand(Guid id)
+        public DeleteTransactionCommand(Guid id)
         {
             Id = id;
         }
@@ -16,7 +16,7 @@ namespace Debora_Bank.Commands.Owner
         public void Validate()
         {
             if (Id == null)
-                throw new CommandValidationException<eOwnerError>(eOwnerError.InvalidId);
+                throw new CommandValidationException<eTransactionsError>(eTransactionsError.InvalidId);
         }
     }
 }

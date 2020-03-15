@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace Debora_Bank.Dtos
+namespace Debora_Bank.Dtos.Owner
 {
     public class OwnerPostRequest
     {

@@ -1,5 +1,5 @@
 ﻿using Debora_Bank.Commands.Owner;
-using Debora_Bank.Dtos;
+using Debora_Bank.Dtos.Owner;
 using Debora_Bank.Exceptions;
 using Debora_Bank.Exceptions.Error;
 using Debora_Bank.Extensions.CommandMappings;
@@ -45,8 +45,7 @@ namespace Debora_Bank.Controllers
 
             var owner = _ownerRepository.GetOwner(guid);
 
-            if (owner is null)
-                return NoContent();
+            if (owner is null) return NoContent();
 
             var response = owner.MapToResponse();
 
@@ -106,8 +105,7 @@ namespace Debora_Bank.Controllers
         [Route("owners/{ownerId}")]
         public IActionResult DeleteOwner(Guid ownerId)
         {
-            if (ownerId == null)
-                return BadRequest();
+            if (ownerId == null) return BadRequest();
 
             try
             {
