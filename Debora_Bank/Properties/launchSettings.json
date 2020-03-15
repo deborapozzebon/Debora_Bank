@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:50867",
+      "applicationUrl": "http://localhost:4545",
       "sslPort": 0
     }
   },
@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,8 +20,8 @@
     "Debora_Bank": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
-      "applicationUrl": "http://localhost:5000",
+      "launchUrl": "",
+      "applicationUrl": "http://localhost:4545",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

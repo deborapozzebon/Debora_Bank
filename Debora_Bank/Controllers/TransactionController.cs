@@ -39,7 +39,7 @@ namespace Debora_Bank.Controllers
 
         [HttpGet]
         [Route("transactions/{transactionId}")]
-        public IActionResult GetTransaction(Guid guid)
+        public IActionResult GetTransaction(int guid)
         {
             if (guid == null) return BadRequest();
 
@@ -61,7 +61,8 @@ namespace Debora_Bank.Controllers
 
             try
             {
-                var command = transactionPostRequest.MapToCommand(Guid.NewGuid());
+                //colocar id correto
+                var command = transactionPostRequest.MapToCommand(0);
 
                 var commandHandler = new TransactionCommandHandler(_transactionRepository);
 
@@ -79,7 +80,7 @@ namespace Debora_Bank.Controllers
 
         [HttpPut]
         [Route("transactions/{transactionId}")]
-        public IActionResult PutOwner([FromBody] TransactionPutRequest transactionPutRequest, [FromRoute] Guid transactionId)
+        public IActionResult PutOwner([FromBody] TransactionPutRequest transactionPutRequest, [FromRoute] int transactionId)
         {
             if (transactionPutRequest == null || transactionId == null)
                 return BadRequest();
@@ -104,7 +105,7 @@ namespace Debora_Bank.Controllers
 
         [HttpDelete]
         [Route("transactions/{transactionId}")]
-        public IActionResult DeleteOwner(Guid transactionId)
+        public IActionResult DeleteOwner(int transactionId)
         {
             if (transactionId == null) return BadRequest();
 

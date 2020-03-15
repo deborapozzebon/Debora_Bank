@@ -8,21 +8,23 @@ namespace Debora_Bank.Commands.Transaction
 {
     public class InsertTransactionCommand
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public eTransactionType TransactionType { get; set; }
         public DateTime Date { get; set; }
         public double Value { get; set; }
         public double BalanceBefore { get; set; }
         public double BalanceAfter { get; set; }
+        public int AccountId { get; set; }
         public Entities.Account Account { get; set; }
 
         public InsertTransactionCommand(
-            Guid id,
+            int id,
             eTransactionType transactionType,
             DateTime date,
             double value,
             double balanceBefore,
             double balanceAfter,
+            int accountId,
             Entities.Account account)
         {
             Id = id;
@@ -31,6 +33,7 @@ namespace Debora_Bank.Commands.Transaction
             Value = value;
             BalanceBefore = balanceBefore;
             BalanceAfter = balanceAfter;
+            AccountId = accountId;
             Account = account;
         }
 

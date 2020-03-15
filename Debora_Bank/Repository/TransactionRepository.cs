@@ -11,7 +11,7 @@ namespace Debora_Bank.Repository
     {
         private readonly DeboraBankDbContext _dbContext;
 
-        public Transaction GetTransaction(Guid transactionId)
+        public Transaction GetTransaction(int transactionId)
         {
             if (transactionId == null)
                 throw new ArgumentNullException(nameof(transactionId));
@@ -24,7 +24,7 @@ namespace Debora_Bank.Repository
             return _dbContext.Transactions.AsEnumerable();
         }
 
-        public IEnumerable<Transaction> GetTransactions(Guid accountId)
+        public IEnumerable<Transaction> GetTransactions(int accountId)
         {
             if (accountId == null)
                 throw new ArgumentNullException(nameof(accountId));

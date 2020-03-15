@@ -8,7 +8,7 @@ namespace Debora_Bank.Dtos.Transaction
     public class TransactionGetResponse
     {
         [JsonProperty("id")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("transactionType")]
         public eTransactionType TransactionType { get; set; }
@@ -24,6 +24,9 @@ namespace Debora_Bank.Dtos.Transaction
 
         [JsonProperty("balanceAfter")]
         public double BalanceAfter { get; set; }
+
+        [JsonProperty("accountId")]
+        public int AccountId { get; set; }
 
         [JsonProperty("account")]
         public Entities.Account Account { get; set; }

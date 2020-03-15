@@ -9,14 +9,14 @@ namespace Debora_Bank.Extensions.CommandMappings
 {
     public static class AccountCommandExtensions
     {
-        public static InsertAccountCommand MapToCommand(this AccountPostRequest account, Guid id)
+        public static InsertAccountCommand MapToCommand(this AccountPostRequest account, int id)
         {
             if (account is null) return null;
 
             return new InsertAccountCommand(id, account.Owner, account.CurrentBalance, account.Historic);
         }
 
-        public static UpdateAccountCommand MapToCommand(this AccountPutRequest account, Guid id)
+        public static UpdateAccountCommand MapToCommand(this AccountPutRequest account, int id)
         {
             if (account is null) return null;
 

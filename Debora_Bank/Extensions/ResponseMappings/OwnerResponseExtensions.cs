@@ -17,6 +17,7 @@ namespace Debora_Bank.Extensions.ResponseMappings
                 Id = owner.Id,
                 Name = owner.Name,
                 CPF = owner.CPF,
+                AccountId = owner.AccountId,
                 Account = owner.Account
             };
         }

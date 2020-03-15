@@ -29,6 +29,7 @@ namespace Debora_Bank.Commands.Owner
             {
                 Name = command.Name,
                 CPF = command.CPF,
+                AccountId = command.AccountId,
                 Account = command.Account
             };
 
@@ -51,6 +52,7 @@ namespace Debora_Bank.Commands.Owner
 
             owner.Name = command.Name;
             owner.CPF = command.CPF;
+            owner.AccountId = command.AccountId;
             owner.Account = command.Account;
 
             _ownerRepository.UpdateOwner(owner);

@@ -11,7 +11,7 @@ namespace Debora_Bank.Repository
     {
         private readonly DeboraBankDbContext _dbContext;
 
-        public Owner GetOwner(Guid ownerId)
+        public Owner GetOwner(int ownerId)
         {
             if (ownerId == null)
                 throw new ArgumentNullException(nameof(ownerId));
@@ -24,7 +24,7 @@ namespace Debora_Bank.Repository
             return _dbContext.Owners.AsEnumerable();
         }
 
-        public IEnumerable<Owner> GetOwners(Guid accountId)
+        public IEnumerable<Owner> GetOwners(int accountId)
         {
             if (accountId == null)
                 throw new ArgumentNullException(nameof(accountId));

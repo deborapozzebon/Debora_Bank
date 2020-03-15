@@ -44,7 +44,7 @@ namespace Debora_Bank
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             serviceProvider.GetService<IDataService>().InitializeDB();
         }
     }

@@ -7,7 +7,7 @@ namespace Debora_Bank.Dtos.Account
     public class AccountGetResponse
     {
         [JsonProperty("id")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("owner")]
         public Entities.Owner Owner { get; set; }

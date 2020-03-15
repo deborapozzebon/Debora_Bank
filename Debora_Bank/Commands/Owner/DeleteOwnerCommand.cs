@@ -6,9 +6,9 @@ namespace Debora_Bank.Commands.Owner
 {
     public class DeleteOwnerCommand
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public DeleteOwnerCommand(Guid id)
+        public DeleteOwnerCommand(int id)
         {
             Id = id;
         }

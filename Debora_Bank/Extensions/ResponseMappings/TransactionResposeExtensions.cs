@@ -22,6 +22,7 @@ namespace Debora_Bank.Extensions.ResponseMappings
                 BalanceBefore = transaction.BalanceBefore,
                 BalanceAfter = transaction.BalanceAfter,
                 Value = transaction.Value,
+                AccountId = transaction.AccountId,
                 Account = transaction.Account
             };
         }

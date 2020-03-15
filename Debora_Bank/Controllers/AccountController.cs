@@ -38,7 +38,7 @@ namespace Debora_Bank.Controllers
 
         [HttpGet]
         [Route("accounts/{accountsId}")]
-        public IActionResult GetAccount(Guid guid)
+        public IActionResult GetAccount(int guid)
         {
             if (guid == null) return BadRequest();
 
@@ -59,7 +59,8 @@ namespace Debora_Bank.Controllers
 
             try
             {
-                var command = accountPostRequest.MapToCommand(Guid.NewGuid());
+                //ver id
+                var command = accountPostRequest.MapToCommand(0);
 
                 var commandHandler = new AccountCommandHandler(_accountRepository);
 
@@ -77,7 +78,7 @@ namespace Debora_Bank.Controllers
 
         [HttpPut]
         [Route("accounts/{accountsId}")]
-        public IActionResult PutAccount([FromBody] AccountPutRequest accountPutRequest, [FromRoute] Guid accountId)
+        public IActionResult PutAccount([FromBody] AccountPutRequest accountPutRequest, [FromRoute] int accountId)
         {
             if (accountPutRequest == null || accountId == null)
                 return BadRequest();
@@ -102,7 +103,7 @@ namespace Debora_Bank.Controllers
 
         [HttpDelete]
         [Route("accounts/{accountsId}")]
-        public IActionResult DeleteAccount(Guid accountId)
+        public IActionResult DeleteAccount(int accountId)
         {
             if (accountId == null) return BadRequest();
 

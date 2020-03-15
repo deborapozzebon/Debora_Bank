@@ -32,6 +32,7 @@ namespace Debora_Bank.Commands.Transaction
                 BalanceBefore = command.BalanceBefore,
                 BalanceAfter = command.BalanceAfter,
                 Date = command.Date,
+                AccountId = command.AccountId,
                 Account = command.Account
             };
 
@@ -57,6 +58,7 @@ namespace Debora_Bank.Commands.Transaction
             transaction.Date = command.Date;
             transaction.BalanceBefore = command.BalanceBefore;
             transaction.BalanceAfter = command.BalanceAfter;
+            transaction.AccountId = command.AccountId;
             transaction.Account = command.Account;
 
             _transactionRepository.UpdateTransaction(transaction);

@@ -6,9 +6,9 @@ namespace Debora_Bank.Commands.Account
 {
     public class DeleteAccountCommand
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public DeleteAccountCommand(Guid id)
+        public DeleteAccountCommand(int id)
         {
             Id = id;
         }

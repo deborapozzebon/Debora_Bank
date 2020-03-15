@@ -39,7 +39,7 @@ namespace Debora_Bank.Controllers
 
         [HttpGet]
         [Route("owners/{ownerId}")]
-        public IActionResult GetOwner(Guid guid)
+        public IActionResult GetOwner(int guid)
         {
             if (guid == null) return BadRequest();
 
@@ -60,7 +60,8 @@ namespace Debora_Bank.Controllers
 
             try
             {
-                var command = ownerPostRequest.MapToCommand(Guid.NewGuid());
+                //colocar o id correto
+                var command = ownerPostRequest.MapToCommand(0);
 
                 var commandHandler = new OwnerCommandHandler(_ownerRepository);
 
@@ -78,7 +79,7 @@ namespace Debora_Bank.Controllers
 
         [HttpPut]
         [Route("owners/{ownerId}")]
-        public IActionResult PutOwner([FromBody] OwnerPutResquest ownerPutRequest, [FromRoute] Guid ownerId)
+        public IActionResult PutOwner([FromBody] OwnerPutResquest ownerPutRequest, [FromRoute] int ownerId)
         {
             if (ownerPutRequest == null || ownerId == null)
                 return BadRequest();
@@ -103,7 +104,7 @@ namespace Debora_Bank.Controllers
 
         [HttpDelete]
         [Route("owners/{ownerId}")]
-        public IActionResult DeleteOwner(Guid ownerId)
+        public IActionResult DeleteOwner(int ownerId)
         {
             if (ownerId == null) return BadRequest();
 

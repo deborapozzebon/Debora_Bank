@@ -8,13 +8,13 @@ namespace Debora_Bank.Commands.Account
 {
     public class InsertAccountCommand
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public Entities.Owner Owner { get; set; }
         public double CurrentBalance { get; set; }
         public ICollection<Entities.Transaction> Historic { get; set; }
 
         public InsertAccountCommand(
-            Guid id, 
+            int id, 
             Entities.Owner owner,
             double currentBalance,
             ICollection<Entities.Transaction> historic)

@@ -9,7 +9,7 @@ namespace Debora_Bank.Extensions.CommandMappings
 {
     public static class TransactionCommandExtensions
     {
-        public static InsertTransactionCommand MapToCommand(this TransactionPostRequest transaction, Guid id)
+        public static InsertTransactionCommand MapToCommand(this TransactionPostRequest transaction, int id)
         {
             if (transaction is null) return null;
 
@@ -20,10 +20,11 @@ namespace Debora_Bank.Extensions.CommandMappings
                 transaction.Value, 
                 transaction.BalanceBefore, 
                 transaction.BalanceAfter, 
+                transaction.AccountId,
                 transaction.Account);
         }
 
-        public static UpdateTransactionCommand MapToCommand(this TransactionPutRequest transaction, Guid id)
+        public static UpdateTransactionCommand MapToCommand(this TransactionPutRequest transaction, int id)
         {
             if (transaction is null) return null;
 
@@ -34,6 +35,7 @@ namespace Debora_Bank.Extensions.CommandMappings
                 transaction.Value,
                 transaction.BalanceBefore,
                 transaction.BalanceAfter,
+                transaction.AccountId,
                 transaction.Account);
         }
     }

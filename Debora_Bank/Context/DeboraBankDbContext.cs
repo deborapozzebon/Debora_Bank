@@ -19,9 +19,22 @@ namespace Debora_Bank.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
-            modelBuilder.ApplyConfiguration(new OwnerConfiguration());
-            modelBuilder.ApplyConfiguration(new AccountConfiguration());
+            modelBuilder.Entity<Account>().HasKey(t => t.Id);
+            modelBuilder.Entity<Account>()
+                .HasMany(t => t.Historic)
+                .WithOne(a => a.Account).HasForeignKey(s => s.Id);
+
+            modelBuilder.Entity<Owner>().HasKey(t => t.Id);
+            modelBuilder.Entity<Owner>()
+                .HasOne(t => t.Account)
+                .WithOne(a => a.Owner)
+                .HasForeignKey<Owner>(q => q.AccountId);
+
+            modelBuilder.Entity<Transaction>().HasKey(t => t.Id);
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.Account)
+                .WithMany(a => a.Historic)
+                .HasForeignKey(f => f.Id);
         }
     }
 }
