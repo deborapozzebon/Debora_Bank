@@ -11,6 +11,13 @@ namespace Debora_Bank.Repository
     {
         private readonly DeboraBankDbContext _dbContext;
 
+        public TransactionRepository(DeboraBankDbContext dbContext)
+        {
+            if (dbContext is null)
+                throw new ArgumentNullException(nameof(dbContext));
+
+            _dbContext = dbContext;
+        }
         public Transaction GetTransaction(int transactionId)
         {
             if (transactionId == null)

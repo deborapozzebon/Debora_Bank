@@ -11,6 +11,14 @@ namespace Debora_Bank.Repository
     {
         private readonly DeboraBankDbContext _dbContext;
 
+        public OwnerRepository(DeboraBankDbContext dbContext)
+        {
+            if (dbContext is null)
+                throw new ArgumentNullException(nameof(dbContext));
+
+            _dbContext = dbContext;
+        }
+
         public Owner GetOwner(int ownerId)
         {
             if (ownerId == null)

@@ -27,6 +27,7 @@ namespace Debora_Bank
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
             services.AddMvc();
 
             services.AddDbContext<DeboraBankDbContext>(options =>
@@ -44,7 +45,17 @@ namespace Debora_Bank
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
-            //app.UseHttpsRedirection();
+            if (env.IsDevelopment())
+               app.UseDeveloperExceptionPage();
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            app.UseHttpsRedirection();
             serviceProvider.GetService<IDataService>().InitializeDB();
         }
     }
