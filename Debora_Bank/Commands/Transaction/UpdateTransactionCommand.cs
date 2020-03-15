@@ -17,7 +17,7 @@ namespace Debora_Bank.Commands.Transaction
         public double Value { get; set; }
         public double BalanceBefore { get; set; }
         public double BalanceAfter { get; set; }
-        public Account Account { get; set; }
+        public Entities.Account Account { get; set; }
 
         public UpdateTransactionCommand(
             Guid id,
@@ -26,7 +26,7 @@ namespace Debora_Bank.Commands.Transaction
             double value,
             double balanceBefore,
             double balanceAfter,
-            Account account)
+            Entities.Account account)
         {
             Id = id;
             TransactionType = transactionType;
@@ -41,9 +41,6 @@ namespace Debora_Bank.Commands.Transaction
         {
             if (Id == null)
                 throw new CommandValidationException<eTransactionsError>(eTransactionsError.InvalidId);
-
-            if (TransactionType == null)
-                throw new CommandValidationException<eTransactionsError>(eTransactionsError.InvalidTransactionType);
 
             if (Date == null)
                 throw new CommandValidationException<eTransactionsError>(eTransactionsError.InvalidDate);

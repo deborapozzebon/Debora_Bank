@@ -16,6 +16,6 @@ namespace Debora_Bank.Dtos.Owner
         public string CPF { get; set; }
 
         [JsonProperty("account")]
-        public Account Account { get; set; }
+        public Entities.Account Account { get; set; }
     }
 }
