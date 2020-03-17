@@ -1,27 +1,19 @@
 ﻿using Debora_Bank.Commands.Transaction;
 using Debora_Bank.Dtos.Transaction;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Debora_Bank.Extensions.CommandMappings
 {
     public static class TransactionCommandExtensions
     {
-        public static InsertTransactionCommand MapToCommand(this TransactionPostRequest transaction, int id)
+        public static InsertTransactionCommand MapToCommand(this TransactionPostRequest transaction)
         {
             if (transaction is null) return null;
 
-            return new InsertTransactionCommand(
-                id, 
+            return new InsertTransactionCommand( 
                 transaction.TransactionType, 
                 transaction.Date, 
                 transaction.Value, 
-                transaction.BalanceBefore, 
-                transaction.BalanceAfter, 
-                transaction.AccountId,
-                transaction.Account);
+                transaction.AccountId);
         }
 
         public static UpdateTransactionCommand MapToCommand(this TransactionPutRequest transaction, int id)
@@ -33,10 +25,7 @@ namespace Debora_Bank.Extensions.CommandMappings
                 transaction.TransactionType,
                 transaction.Date,
                 transaction.Value,
-                transaction.BalanceBefore,
-                transaction.BalanceAfter,
-                transaction.AccountId,
-                transaction.Account);
+                transaction.AccountId);
         }
     }
 }

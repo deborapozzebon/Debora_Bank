@@ -15,13 +15,15 @@ namespace Debora_Bank.Controllers
     public class TransactionController : ControllerBase
     {
         private readonly ITransactionRepository _transactionRepository;
+        private readonly IAccountRepository _accountRepository;
 
-        public TransactionController(ITransactionRepository transactionRepository)
+        public TransactionController(ITransactionRepository transactionRepository, IAccountRepository accountRepository)
         {
             if (transactionRepository is null)
                 throw new ArgumentNullException(nameof(transactionRepository));
 
             _transactionRepository = transactionRepository;
+            _accountRepository = accountRepository;
         }
 
         [HttpGet]
@@ -61,10 +63,13 @@ namespace Debora_Bank.Controllers
 
             try
             {
-                //colocar id correto
-                var command = transactionPostRequest.MapToCommand(0);
+                var command = transactionPostRequest.MapToCommand();
 
-                var commandHandler = new TransactionCommandHandler(_transactionRepository);
+                var account = _accountRepository.GetAccount(command.AccountId);
+
+                var commandHandler = new TransactionCommandHandler(_transactionRepository, _accountRepository);
+
+
 
                 var transaction = commandHandler.Handle(command);
 

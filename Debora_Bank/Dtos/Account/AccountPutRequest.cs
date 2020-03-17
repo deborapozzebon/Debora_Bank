@@ -5,8 +5,11 @@ namespace Debora_Bank.Dtos.Account
 {
     public class AccountPutRequest
     {
-        [JsonProperty("owner")]
-        public Entities.Owner Owner { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("cpf")]
+        public string CPF { get; set; }
 
         [JsonProperty("currentBalance")]
         public double CurrentBalance { get; set; }

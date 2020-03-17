@@ -19,11 +19,8 @@ namespace Debora_Bank.Extensions.ResponseMappings
                 Id = transaction.Id,
                 TransactionType = transaction.TransactionType,
                 Date = transaction.Date,
-                BalanceBefore = transaction.BalanceBefore,
-                BalanceAfter = transaction.BalanceAfter,
                 Value = transaction.Value,
-                AccountId = transaction.AccountId,
-                Account = transaction.Account
+                AccountId = transaction.AccountId
             };
         }
 

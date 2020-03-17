@@ -12,29 +12,18 @@ namespace Debora_Bank.Commands.Transaction
         public eTransactionType TransactionType { get; set; }
         public DateTime Date { get; set; }
         public double Value { get; set; }
-        public double BalanceBefore { get; set; }
-        public double BalanceAfter { get; set; }
         public int AccountId { get; set; }
-        public Entities.Account Account { get; set; }
 
         public InsertTransactionCommand(
-            int id,
             eTransactionType transactionType,
             DateTime date,
             double value,
-            double balanceBefore,
-            double balanceAfter,
-            int accountId,
-            Entities.Account account)
+            int accountId)
         {
-            Id = id;
             TransactionType = transactionType;
             Date = date;
             Value = value;
-            BalanceBefore = balanceBefore;
-            BalanceAfter = balanceAfter;
             AccountId = accountId;
-            Account = account;
         }
 
         public void Validate()
@@ -47,15 +36,6 @@ namespace Debora_Bank.Commands.Transaction
 
             if (Double.IsNaN(Value))
                 throw new CommandValidationException<eTransactionsError>(eTransactionsError.InvalidVale);
-
-            if (Double.IsNaN(BalanceBefore))
-                throw new CommandValidationException<eTransactionsError>(eTransactionsError.InvalidBalanceBefore);
-
-            if (Double.IsNaN(BalanceAfter))
-                throw new CommandValidationException<eTransactionsError>(eTransactionsError.InvalidBalanceAfter);
-
-            if (Account == null)
-                throw new CommandValidationException<eTransactionsError>(eTransactionsError.InvalidAccount);
         }
     }
 }

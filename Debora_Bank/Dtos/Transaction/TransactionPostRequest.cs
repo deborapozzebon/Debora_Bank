@@ -16,12 +16,6 @@ namespace Debora_Bank.Dtos.Transaction
         [JsonProperty("value")]
         public double Value { get; set; }
 
-        [JsonProperty("balanceBefore")]
-        public double BalanceBefore { get; set; }
-
-        [JsonProperty("balanceAfter")]
-        public double BalanceAfter { get; set; }
-
         [JsonProperty("accountId")]
         public int AccountId { get; set; }
 

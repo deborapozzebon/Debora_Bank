@@ -36,7 +36,7 @@ namespace Debora_Bank.Repository
             if (accountId == null)
                 throw new ArgumentNullException(nameof(accountId));
 
-            return _dbContext.Transactions.Where(p => p.Account.Id.Equals(accountId));
+            return _dbContext.Transactions.Where(p => p.AccountId.Equals(accountId));
         }
 
         public void InsertTransaction(Transaction transaction)

@@ -34,10 +34,12 @@ namespace Debora_Bank.Repository
 
         public Account GeAccount(int transactionId)
         {
-            if (transactionId == null)
-                throw new ArgumentNullException(nameof(transactionId));
+            return new Account();
+            //TODO RETORNAR O ACCOUNT CORRETO
+            //if (transactionId == null)
+            //    throw new ArgumentNullException(nameof(transactionId));
 
-            return _dbContext.Transactions.FirstOrDefault(p => p.Id.Equals(transactionId)).Account;
+            //return _dbContext.Transactions.FirstOrDefault(p => p.Id.Equals(transactionId));
         }
         
         public void InsertAccount(Account account)

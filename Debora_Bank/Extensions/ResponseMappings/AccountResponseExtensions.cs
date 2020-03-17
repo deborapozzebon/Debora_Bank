@@ -17,9 +17,10 @@ namespace Debora_Bank.Extensions.ResponseMappings
             return new AccountGetResponse
             {
                 Id = account.Id,
+                CPF = account.CPF,
+                Name = account.Name,
                 CurrentBalance = account.CurrentBalance,
                 Historic = account.Historic,
-                Owner = account.Owner
             };
         }
 

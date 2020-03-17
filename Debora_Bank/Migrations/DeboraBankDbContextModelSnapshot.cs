@@ -26,15 +26,21 @@ namespace Debora_Bank.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CPF")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("CurrentBalance")
                         .HasColumnType("float");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("Debora_Bank.Entities.Owner", b =>
+            modelBuilder.Entity("Debora_Bank.Entities.Transaction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,34 +49,6 @@ namespace Debora_Bank.Migrations
 
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
-
-                    b.Property<string>("CPF")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountId")
-                        .IsUnique();
-
-                    b.ToTable("Owners");
-                });
-
-            modelBuilder.Entity("Debora_Bank.Entities.Transaction", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AccountId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("BalanceAfter")
-                        .HasColumnType("float");
-
-                    b.Property<double>("BalanceBefore")
-                        .HasColumnType("float");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -83,23 +61,16 @@ namespace Debora_Bank.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Transactions");
-                });
+                    b.HasIndex("AccountId");
 
-            modelBuilder.Entity("Debora_Bank.Entities.Owner", b =>
-                {
-                    b.HasOne("Debora_Bank.Entities.Account", "Account")
-                        .WithOne("Owner")
-                        .HasForeignKey("Debora_Bank.Entities.Owner", "AccountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.ToTable("Transactions");
                 });
 
             modelBuilder.Entity("Debora_Bank.Entities.Transaction", b =>
                 {
                     b.HasOne("Debora_Bank.Entities.Account", "Account")
                         .WithMany("Historic")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

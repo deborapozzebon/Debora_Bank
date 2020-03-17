@@ -9,8 +9,11 @@ namespace Debora_Bank.Dtos.Account
         [JsonProperty("id")]
         public int Id { get; set; }
 
-        [JsonProperty("owner")]
-        public Entities.Owner Owner { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("cpf")]
+        public string CPF { get; set; }
 
         [JsonProperty("currentBalance")]
         public double CurrentBalance { get; set; }

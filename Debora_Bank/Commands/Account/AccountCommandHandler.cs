@@ -9,8 +9,7 @@ namespace Debora_Bank.Commands.Account
     {
         private readonly IAccountRepository _accountRepository;
 
-        public AccountCommandHandler(
-            IAccountRepository accountRepository)
+        public AccountCommandHandler(IAccountRepository accountRepository)
         {
             if (accountRepository is null)
                 throw new ArgumentNullException(nameof(accountRepository));
@@ -27,8 +26,9 @@ namespace Debora_Bank.Commands.Account
 
             var account = new Entities.Account
             {
+                Name = command.Name,
+                CPF = command.CPF,
                 CurrentBalance = command.CurrentBalance,
-                Owner = command.Owner,
                 Historic = command.Historic
             };
 
@@ -50,8 +50,9 @@ namespace Debora_Bank.Commands.Account
                 throw new CommandValidationException<eAccountError>(eAccountError.InvalidId);
 
             account.CurrentBalance = command.CurrentBalance;
-            account.Owner = command.Owner;
             account.Historic = command.Historic;
+            account.Name = command.Name;
+            account.CPF = command.CPF;
 
             _accountRepository.UpdateAccount(account);
 
