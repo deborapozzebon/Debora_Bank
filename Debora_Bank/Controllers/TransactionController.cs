@@ -1,10 +1,10 @@
-﻿using Debora_Bank.Commands.Transaction;
+﻿using Debora_Bank.Domain.Commands.Transaction;
+using Debora_Bank.Domain.Exceptions;
+using Debora_Bank.Domain.Exceptions.Error;
+using Debora_Bank.Domain.Repository.Interfaces;
 using Debora_Bank.Dtos.Transaction;
-using Debora_Bank.Exceptions;
-using Debora_Bank.Exceptions.Error;
 using Debora_Bank.Extensions.CommandMappings;
 using Debora_Bank.Extensions.ResponseMappings;
-using Debora_Bank.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -81,7 +81,7 @@ namespace Debora_Bank.Controllers
 
         [HttpPut]
         [Route("transactions/{transactionId}")]
-        public IActionResult PutOwner([FromBody] TransactionPutRequest transactionPutRequest, [FromRoute] int transactionId)
+        public IActionResult PutTransaction([FromBody] TransactionPutRequest transactionPutRequest, [FromRoute] int transactionId)
         {
             if (transactionPutRequest == null || transactionId == null)
                 return BadRequest();
@@ -106,7 +106,7 @@ namespace Debora_Bank.Controllers
 
         [HttpDelete]
         [Route("transactions/{transactionId}")]
-        public IActionResult DeleteOwner(int transactionId)
+        public IActionResult DeleteTransaction(int transactionId)
         {
             if (transactionId == null) return BadRequest();
 

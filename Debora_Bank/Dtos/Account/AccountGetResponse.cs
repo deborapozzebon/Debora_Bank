@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 
 namespace Debora_Bank.Dtos.Account
@@ -19,6 +18,6 @@ namespace Debora_Bank.Dtos.Account
         public double CurrentBalance { get; set; }
 
         [JsonProperty("historic")]
-        public ICollection<Entities.Transaction> Historic { get; set; }
+        public ICollection<Domain.Entities.Transaction> Historic { get; set; }
     }
 }

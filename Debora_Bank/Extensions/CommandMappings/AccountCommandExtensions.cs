@@ -1,9 +1,5 @@
-﻿using Debora_Bank.Commands.Account;
+﻿using Debora_Bank.Domain.Commands.Account;
 using Debora_Bank.Dtos.Account;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Debora_Bank.Extensions.CommandMappings
 {

@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debora_Bank", "Debora_Bank\Debora_Bank.csproj", "{0334275E-2A74-4863-A995-9B41E68E124F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Debora_Bank", "Debora_Bank\Debora_Bank.csproj", "{0334275E-2A74-4863-A995-9B41E68E124F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{045E6CAD-55C0-44B1-998D-C6E9898A3357}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B5E5E468-37CC-434C-9E3B-0418A6475C79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debora_Bank.Domain", "Debora_Bank.Domain\Debora_Bank.Domain.csproj", "{F542B0E2-FEDB-46D9-9480-558695F0320A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,12 +21,17 @@ Global
 		{0334275E-2A74-4863-A995-9B41E68E124F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0334275E-2A74-4863-A995-9B41E68E124F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0334275E-2A74-4863-A995-9B41E68E124F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F542B0E2-FEDB-46D9-9480-558695F0320A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F542B0E2-FEDB-46D9-9480-558695F0320A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F542B0E2-FEDB-46D9-9480-558695F0320A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F542B0E2-FEDB-46D9-9480-558695F0320A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0334275E-2A74-4863-A995-9B41E68E124F} = {045E6CAD-55C0-44B1-998D-C6E9898A3357}
+		{F542B0E2-FEDB-46D9-9480-558695F0320A} = {045E6CAD-55C0-44B1-998D-C6E9898A3357}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DACCD640-2A6C-4D9F-9640-81216A7886F6}

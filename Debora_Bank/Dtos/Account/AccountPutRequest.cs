@@ -15,6 +15,6 @@ namespace Debora_Bank.Dtos.Account
         public double CurrentBalance { get; set; }
 
         [JsonProperty("historic")]
-        public ICollection<Entities.Transaction> Historic { get; set; }
+        public ICollection<Domain.Entities.Transaction> Historic { get; set; }
     }
 }

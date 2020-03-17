@@ -1,18 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Debora_Bank.Context;
-using Debora_Bank.Repository;
-using Debora_Bank.Repository.Interfaces;
+using Debora_Bank.DataService;
+using Debora_Bank.Domain.Context;
+using Debora_Bank.Domain.Repository;
+using Debora_Bank.Domain.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace Debora_Bank
 {
@@ -36,7 +32,7 @@ namespace Debora_Bank
                     b => b.MigrationsAssembly("Debora_Bank"));
             });
 
-            services.AddTransient<IDataService, DataService>();
+            services.AddTransient<IDataService, DataService.DataService>();
 
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();

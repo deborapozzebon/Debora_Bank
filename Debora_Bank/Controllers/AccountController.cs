@@ -1,10 +1,10 @@
-﻿using Debora_Bank.Commands.Account;
+﻿using Debora_Bank.Domain.Commands.Account;
+using Debora_Bank.Domain.Exceptions;
+using Debora_Bank.Domain.Exceptions.Error;
+using Debora_Bank.Domain.Repository.Interfaces;
 using Debora_Bank.Dtos.Account;
-using Debora_Bank.Exceptions;
-using Debora_Bank.Exceptions.Error;
 using Debora_Bank.Extensions.CommandMappings;
 using Debora_Bank.Extensions.ResponseMappings;
-using Debora_Bank.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;

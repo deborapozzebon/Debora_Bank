@@ -1,5 +1,4 @@
-﻿using Debora_Bank.Entities;
-using Debora_Bank.Entities.Enums;
+﻿using Debora_Bank.Domain.Entities.Enums;
 using Newtonsoft.Json;
 using System;
 
@@ -20,6 +19,6 @@ namespace Debora_Bank.Dtos.Transaction
         public int AccountId { get; set; }
 
         [JsonProperty("account")]
-        public Entities.Account Account { get; set; }
+        public Domain.Entities.Account Account { get; set; }
     }
 }

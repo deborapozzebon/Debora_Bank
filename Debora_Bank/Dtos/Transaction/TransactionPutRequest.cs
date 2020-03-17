@@ -1,5 +1,4 @@
-﻿using Debora_Bank.Entities;
-using Debora_Bank.Entities.Enums;
+﻿using Debora_Bank.Domain.Entities.Enums;
 using Newtonsoft.Json;
 using System;
 

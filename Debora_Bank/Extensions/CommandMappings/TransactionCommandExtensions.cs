@@ -1,4 +1,4 @@
-﻿using Debora_Bank.Commands.Transaction;
+﻿using Debora_Bank.Domain.Commands.Transaction;
 using Debora_Bank.Dtos.Transaction;
 
 namespace Debora_Bank.Extensions.CommandMappings
