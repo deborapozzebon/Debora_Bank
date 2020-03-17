@@ -58,18 +58,14 @@ namespace Debora_Bank.Controllers
         [HttpPost]
         [Route("transactions")]
         public IActionResult PostTransaction(TransactionPostRequest transactionPostRequest)
-        {
+         {
             if (transactionPostRequest == null) return BadRequest();
 
             try
             {
                 var command = transactionPostRequest.MapToCommand();
 
-                var account = _accountRepository.GetAccount(command.AccountId);
-
                 var commandHandler = new TransactionCommandHandler(_transactionRepository, _accountRepository);
-
-
 
                 var transaction = commandHandler.Handle(command);
 
@@ -94,7 +90,7 @@ namespace Debora_Bank.Controllers
             {
                 var command = transactionPutRequest.MapToCommand(transactionId);
 
-                var commandHandler = new TransactionCommandHandler(_transactionRepository);
+                var commandHandler = new TransactionCommandHandler(_transactionRepository, _accountRepository);
 
                 var transaction = commandHandler.Handle(command);
 

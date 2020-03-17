@@ -53,8 +53,8 @@ namespace Debora_Bank.Commands.Transaction
                 AccountId = command.AccountId
             };
 
-            _accountRepository.UpdateAccount(account);
             _transactionRepository.InsertTransaction(transaction);
+            _accountRepository.UpdateAccount(account);
 
             return transaction;
         }
@@ -70,15 +70,15 @@ namespace Debora_Bank.Commands.Transaction
             if (transaction is null)
                 throw new CommandValidationException<eTransactionsError>(eTransactionsError.InvalidId);
 
-            var account = _accountRepository.GetAccount(command.AccountId);
+            var account = _accountRepository.GetAccount(transaction.AccountId);
 
-            RevertValues(command, transaction, account);
+            RevertValues(transaction.TransactionType, transaction.Value, account);
             UpdateValues(command.TransactionType, command.Value, account);
 
             transaction.TransactionType = command.TransactionType;
             transaction.Value = command.Value;
             transaction.Date = command.Date;
-            transaction.AccountId = command.AccountId;
+            transaction.AccountId = account.Id;
 
             _accountRepository.UpdateAccount(account);
             _transactionRepository.UpdateTransaction(transaction);
@@ -116,17 +116,17 @@ namespace Debora_Bank.Commands.Transaction
             }
         }
 
-        private static void RevertValues(UpdateTransactionCommand command, Entities.Transaction transaction, Entities.Account account)
+        private static void RevertValues(eTransactionType transactionType, double value, Entities.Account account)
         {
-            switch (command.TransactionType)
+            switch (transactionType)
             {
                 case eTransactionType.Deposit:
-                    account.CurrentBalance -= transaction.Value;
+                    account.CurrentBalance -= value;
                     break;
                 case eTransactionType.Payment:
                 case eTransactionType.Withdraw:
                 default:
-                    account.CurrentBalance += transaction.Value;
+                    account.CurrentBalance += value;
                     break;
             }
         }
